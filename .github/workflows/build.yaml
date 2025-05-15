@@ -1,5 +1,5 @@
 name: android_build
-
+run: ./gradlew assembleDebug --warning-mode none  # 关闭警告
 on:
   workflow_dispatch:
 
