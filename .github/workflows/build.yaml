@@ -1,5 +1,5 @@
 name: android_build
-run: ./gradlew assembleDebug --warning-mode none  # 关闭警告
+
 on:
   workflow_dispatch:
 
@@ -30,7 +30,8 @@ jobs:
         run: |
           if [ ! -f "gradlew" ]; then gradle wrapper; fi
           chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleDebug --stacktrace --warning-mode none  # 关闭警告
+          distributionUrl=https\://services.gradle.org/distributions/gradle-8.10.1-bin.zip
       - name: Upload APK
       # 打包上传生成的 APK 到的网页端
         uses: actions/upload-artifact@v4
